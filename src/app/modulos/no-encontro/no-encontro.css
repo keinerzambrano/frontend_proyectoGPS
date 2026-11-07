@@ -1,0 +1,296 @@
+:host {
+    display: block;
+    min-height: 100vh;
+}
+
+.error-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: #ffffff;
+}
+
+.error-container {
+    width: 100%;
+    max-width: 1000px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+.error-content {
+    flex: 1;
+}
+
+.error-content h1 {
+    margin: 0;
+
+    font-size: 150px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    color: #000;
+}
+
+.error-content h2 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+    color: #111;
+}
+
+.error-content p {
+    margin-top: 0;
+
+    font-size: 34px;
+
+    color: #111;
+
+    font-weight: 300;
+}
+
+.btn-volver {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding: 12px 20px;
+
+    background: #c9212b;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.btn-volver:hover {
+    background: #a71922;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* ROBOT */
+
+.robot {
+    width: 330px;
+
+    height: 400px;
+
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+
+/* CABEZA */
+
+.robot-head {
+    position: absolute;
+
+    width: 190px;
+
+    height: 145px;
+
+    top: 40px;
+    left: 70px;
+
+    background: #f8f8f8;
+
+    border: 5px solid #111;
+
+    border-radius: 18px;
+
+    transform: rotate(-5deg);
+}
+
+.robot-eye {
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+
+    border: 4px solid #111;
+
+    border-radius: 50%;
+
+    top: 55px;
+}
+
+.eye-left {
+    left: 40px;
+}
+
+.eye-right {
+    right: 35px;
+}
+
+.robot-mouth {
+    position: absolute;
+
+    width: 65px;
+    height: 20px;
+
+    border-bottom: 5px solid #111;
+
+    border-radius: 50%;
+
+    left: 60px;
+    bottom: 30px;
+}
+
+
+/* CUERPO */
+
+.robot-body {
+    position: absolute;
+
+    width: 160px;
+    height: 170px;
+
+    top: 180px;
+    left: 85px;
+
+    background: #f5f5f5;
+
+    border: 5px solid #111;
+
+    border-radius: 15px;
+}
+
+.robot-screen {
+    width: 85px;
+    height: 85px;
+
+    margin: 35px auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 40px;
+
+    border: 5px solid #111;
+
+    background: #ddd;
+}
+
+
+/* BRAZOS */
+
+.robot-arm {
+    position: absolute;
+
+    width: 90px;
+    height: 18px;
+
+    background: #eee;
+
+    border: 5px solid #111;
+
+    border-radius: 15px;
+
+    top: 205px;
+}
+
+.arm-left {
+    left: 0;
+
+    transform: rotate(35deg);
+}
+
+.arm-right {
+    right: 0;
+
+    transform: rotate(-35deg);
+}
+
+
+/* PIERNAS */
+
+.robot-leg {
+    position: absolute;
+
+    width: 30px;
+    height: 80px;
+
+    background: #eee;
+
+    border: 5px solid #111;
+
+    border-radius: 12px;
+
+    top: 340px;
+}
+
+.leg-left {
+    left: 115px;
+
+    transform: rotate(8deg);
+}
+
+.leg-right {
+    right: 115px;
+
+    transform: rotate(-8deg);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .error-container {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .error-content h1 {
+        font-size: 100px;
+    }
+
+    .error-content h2 {
+        font-size: 32px;
+    }
+
+    .error-content p {
+        font-size: 25px;
+    }
+
+    .robot {
+        transform: scale(0.75);
+
+        margin-top: -40px;
+    }
+
+}

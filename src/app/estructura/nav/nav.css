@@ -1,0 +1,177 @@
+
+:host {
+  display: block;
+  flex: 0 0 auto;
+  width: 250px;
+  height: 100%;
+  min-height: 100vh;
+  transition: width 0.25s ease;
+}
+
+.gps-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #111214;
+  color: #fff;
+  transition: width 0.25s ease;
+}
+
+.gps-sidebar.collapsed {
+  width: 76px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 88px;
+  min-height: 88px;
+  padding: 15px;
+  background: #c9232b;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo-icon {
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+}
+
+.logo-text {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.sidebar-section {
+  flex: 1;
+  padding: 25px 12px;
+}
+
+.section-label {
+  display: block;
+  margin: 0 12px 15px;
+  color: #888b94;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  white-space: nowrap;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 48px;
+  padding: 0 15px;
+  border-radius: 8px;
+  color: #d4d6dc;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-menu a i {
+  flex: 0 0 22px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.sidebar-menu a:hover {
+  background: #292b30;
+  color: #fff;
+}
+
+.sidebar-menu a.active {
+  background: #c9232b;
+  color: #fff;
+  box-shadow: inset 3px 0 #ffb400;
+}
+
+.sidebar-bottom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 15px 22px;
+  border-top: 1px solid #2a2b30;
+  color: #a5a7ae;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.sidebar-bottom i {
+  font-size: 18px;
+}
+
+.gps-sidebar.collapsed .logo-text,
+.gps-sidebar.collapsed .section-label,
+.gps-sidebar.collapsed .sidebar-menu a span,
+.gps-sidebar.collapsed .sidebar-bottom span {
+  display: none;
+}
+
+.gps-sidebar.collapsed .sidebar-header {
+  flex-direction: column;
+  padding: 10px;
+}
+
+.gps-sidebar.collapsed .sidebar-section {
+  padding: 25px 10px;
+}
+
+.gps-sidebar.collapsed .sidebar-menu a {
+  justify-content: center;
+  padding: 0;
+}
+
+.gps-sidebar.collapsed .sidebar-bottom {
+  justify-content: center;
+  padding: 15px 5px;
+}
+
+@media (max-width: 700px) {
+  :host {
+    position: relative;
+    z-index: 100;
+    width: 0;
+    min-height: 100vh;
+  }
+
+  .gps-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 250px;
+    min-height: 100vh;
+    overflow-y: auto;
+    box-shadow: 5px 0 25px rgb(0 0 0 / 15%);
+  }
+
+  .gps-sidebar.collapsed {
+    width: 0;
+  }
+
+  .gps-sidebar.collapsed .sidebar-header,
+  .gps-sidebar.collapsed .sidebar-section,
+  .gps-sidebar.collapsed .sidebar-bottom {
+    visibility: hidden;
+  }
+
+  .gps-sidebar:not(.collapsed) {
+    width: 250px;
+  }
+}

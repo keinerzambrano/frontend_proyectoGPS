@@ -1,0 +1,342 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        <li class="breadcrumb-item">
+            <a routerLink="/dashboard">
+                Inicio
+            </a>
+        </li>
+
+        <li class="breadcrumb-item active">
+            Seguimiento
+        </li>
+
+    </ol>
+</nav>
+
+
+<h2 class="mb-4">
+    Seguimiento
+</h2>
+
+
+<div class="card">
+
+    <div class="card-body">
+
+        <h5 class="card-title mb-3">
+            Seguimiento de Vehículos
+        </h5>
+
+
+        <p class="text-muted">
+            Monitoreo en tiempo real de los vehículos registrados
+            en el sistema GPS.
+        </p>
+
+
+        <!-- BOTÓN -->
+        <div class="mb-3">
+
+            <button class="btn btn-success">
+
+                <i class="bi bi-geo-alt"></i>
+
+                Actualizar Ubicaciones
+
+            </button>
+
+        </div>
+
+
+        <!-- TABLA -->
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead class="table-light">
+
+                    <tr>
+
+                        <th>
+                            ID Vehículo
+                        </th>
+
+                        <th>
+                            Vehículo
+                        </th>
+
+                        <th>
+                            Conductor
+                        </th>
+
+                        <th>
+                            Ubicación
+                        </th>
+
+                        <th>
+                            Velocidad
+                        </th>
+
+                        <th>
+                            Estado
+                        </th>
+
+                        <th>
+                            Última Actualización
+                        </th>
+
+                        <th>
+                            Acciones
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    <!-- VEHÍCULO 1 -->
+                    <tr>
+
+                        <td>
+                            VH-001
+                        </td>
+
+                        <td>
+                            Toyota Hilux
+                        </td>
+
+                        <td>
+                            Juan Pérez
+                        </td>
+
+                        <td>
+                            Bogotá
+                        </td>
+
+                        <td>
+                            65 km/h
+                        </td>
+
+                        <td>
+
+                            <span class="badge bg-success">
+                                En movimiento
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Hace 1 minuto
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-sm btn-primary me-1"
+                                title="Ver ubicación">
+
+                                <i class="bi bi-geo-alt"></i>
+
+                            </button>
+
+                            <button
+                                class="btn btn-sm btn-danger"
+                                title="Ver alertas">
+
+                                <i class="bi bi-exclamation-triangle"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- VEHÍCULO 2 -->
+                    <tr>
+
+                        <td>
+                            VH-002
+                        </td>
+
+                        <td>
+                            Chevrolet NHR
+                        </td>
+
+                        <td>
+                            Carlos Rodríguez
+                        </td>
+
+                        <td>
+                            Medellín
+                        </td>
+
+                        <td>
+                            0 km/h
+                        </td>
+
+                        <td>
+
+                            <span class="badge bg-warning text-dark">
+                                Detenido
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Hace 2 minutos
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-sm btn-primary me-1"
+                                title="Ver ubicación">
+
+                                <i class="bi bi-geo-alt"></i>
+
+                            </button>
+
+                            <button
+                                class="btn btn-sm btn-danger"
+                                title="Ver alertas">
+
+                                <i class="bi bi-exclamation-triangle"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- VEHÍCULO 3 -->
+                    <tr>
+
+                        <td>
+                            VH-003
+                        </td>
+
+                        <td>
+                            Renault Duster
+                        </td>
+
+                        <td>
+                            María González
+                        </td>
+
+                        <td>
+                            Cali
+                        </td>
+
+                        <td>
+                            92 km/h
+                        </td>
+
+                        <td>
+
+                            <span class="badge bg-danger">
+                                Exceso de velocidad
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Hace 30 segundos
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-sm btn-primary me-1"
+                                title="Ver ubicación">
+
+                                <i class="bi bi-geo-alt"></i>
+
+                            </button>
+
+                            <button
+                                class="btn btn-sm btn-danger"
+                                title="Ver alertas">
+
+                                <i class="bi bi-exclamation-triangle"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- VEHÍCULO 4 -->
+                    <tr>
+
+                        <td>
+                            VH-004
+                        </td>
+
+                        <td>
+                            Ford Ranger
+                        </td>
+
+                        <td>
+                            Pedro Martínez
+                        </td>
+
+                        <td>
+                            Barranquilla
+                        </td>
+
+                        <td>
+                            48 km/h
+                        </td>
+
+                        <td>
+
+                            <span class="badge bg-success">
+                                En movimiento
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Hace 1 minuto
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-sm btn-primary me-1"
+                                title="Ver ubicación">
+
+                                <i class="bi bi-geo-alt"></i>
+
+                            </button>
+
+                            <button
+                                class="btn btn-sm btn-danger"
+                                title="Ver alertas">
+
+                                <i class="bi bi-exclamation-triangle"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+```

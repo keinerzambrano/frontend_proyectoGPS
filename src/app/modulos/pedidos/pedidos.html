@@ -1,0 +1,469 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        <li class="breadcrumb-item">
+            <a routerLink="/dashboard">
+                Inicio
+            </a>
+        </li>
+
+        <li class="breadcrumb-item active">
+            Pedidos
+        </li>
+
+    </ol>
+</nav>
+
+
+<h2 class="mb-4">
+    Pedidos
+</h2>
+
+
+<div class="card">
+
+    <div class="card-body">
+
+        <h5 class="card-title mb-3">
+            Gestión de Pedidos
+        </h5>
+
+
+        <p class="text-muted">
+            Administración y seguimiento de los pedidos
+            registrados en el sistema GPS.
+        </p>
+
+
+        <!-- MENSAJE -->
+        <div
+            *ngIf="mensaje"
+            class="alert"
+            [ngClass]="'alert-' + tipoMensaje">
+
+            {{ mensaje }}
+
+        </div>
+
+
+        <!-- BOTÓN INSERTAR -->
+
+        <div class="mb-3">
+
+            <button
+                class="btn btn-success"
+                data-bs-toggle="modal"
+                data-bs-target="#modalPedido"
+                (click)="nuevoPedido()">
+
+                <i class="bi bi-plus-circle"></i>
+
+                Insertar Pedido
+
+            </button>
+
+        </div>
+
+
+        <!-- TABLA -->
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead class="table-light">
+
+                    <tr>
+
+                        <th>
+                            ID Pedido
+                        </th>
+
+                        <th>
+                            Cliente
+                        </th>
+
+                        <th>
+                            Origen
+                        </th>
+
+                        <th>
+                            Destino
+                        </th>
+
+                        <th>
+                            Vehículo
+                        </th>
+
+                        <th>
+                            Estado
+                        </th>
+
+                        <th>
+                            Fecha
+                        </th>
+
+                        <th>
+                            Acciones
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    <!-- CARGANDO -->
+
+                    <tr *ngIf="cargandoPedidos">
+
+                        <td colspan="8" class="text-center py-4">
+
+                            <div class="spinner-border text-primary"></div>
+
+                            <div class="mt-2">
+                                Cargando pedidos...
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- PEDIDOS -->
+
+                    <tr
+                        *ngFor="let pedido of pedidos">
+
+                        <td>
+
+                            #{{ pedido.id_pedido }}
+
+                        </td>
+
+
+                        <td>
+
+                            {{ pedido.cliente }}
+
+                        </td>
+
+
+                        <td>
+
+                            {{ pedido.origen }}
+
+                        </td>
+
+
+                        <td>
+
+                            {{ pedido.destino }}
+
+                        </td>
+
+
+                        <td>
+
+                            {{ pedido.vehiculo }}
+
+                        </td>
+
+
+                        <td>
+
+                            <span
+                                class="badge"
+                                [ngClass]="{
+                                    'bg-warning text-dark': pedido.estado === 'En ruta',
+                                    'bg-success': pedido.estado === 'Entregado',
+                                    'bg-danger': pedido.estado === 'Retrasado',
+                                    'bg-secondary': pedido.estado === 'Pendiente'
+                                }">
+
+                                {{ pedido.estado }}
+
+                            </span>
+
+                        </td>
+
+
+                        <td>
+
+                            {{ pedido.fecha }}
+
+                        </td>
+
+
+                        <td>
+
+                            <!-- EDITAR -->
+
+                            <button
+                                class="btn btn-sm btn-primary me-1"
+                                title="Editar"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalPedido"
+                                (click)="editarPedido(pedido)">
+
+                                <i class="bi bi-pencil-square"></i>
+
+                            </button>
+
+
+                            <!-- ELIMINAR -->
+
+                            <button
+                                class="btn btn-sm btn-danger"
+                                title="Eliminar"
+                                (click)="eliminarPedido(pedido)">
+
+                                <i class="bi bi-trash"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- SIN PEDIDOS -->
+
+                    <tr
+                        *ngIf="!cargandoPedidos && pedidos.length === 0">
+
+                        <td
+                            colspan="8"
+                            class="text-center text-muted py-4">
+
+                            No hay pedidos registrados.
+
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- MODAL INSERTAR / EDITAR -->
+<!-- ================================================= -->
+
+<div
+    class="modal fade"
+    id="modalPedido"
+    tabindex="-1"
+    aria-labelledby="modalPedidoLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+
+            <!-- HEADER -->
+
+            <div class="modal-header">
+
+                <h5
+                    class="modal-title"
+                    id="modalPedidoLabel">
+
+                    {{ modoEdicion ? 'Editar Pedido' : 'Insertar Pedido' }}
+
+                </h5>
+
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+
+            <!-- BODY -->
+
+            <div class="modal-body">
+
+
+                <div class="row">
+
+
+                    <!-- CLIENTE -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Cliente
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="cliente"
+                            placeholder="Nombre del cliente">
+
+                    </div>
+
+
+                    <!-- VEHÍCULO -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Vehículo
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="vehiculo"
+                            placeholder="Ej: VH-001">
+
+                    </div>
+
+
+                    <!-- ORIGEN -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Origen
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="origen"
+                            placeholder="Ciudad de origen">
+
+                    </div>
+
+
+                    <!-- DESTINO -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Destino
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="destino"
+                            placeholder="Ciudad de destino">
+
+                    </div>
+
+
+                    <!-- ESTADO -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Estado
+                        </label>
+
+                        <select
+                            class="form-select"
+                            [(ngModel)]="estado">
+
+                            <option value="Pendiente">
+                                Pendiente
+                            </option>
+
+                            <option value="En ruta">
+                                En ruta
+                            </option>
+
+                            <option value="Entregado">
+                                Entregado
+                            </option>
+
+                            <option value="Retrasado">
+                                Retrasado
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- FECHA -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Fecha
+                        </label>
+
+                        <input
+                            type="date"
+                            class="form-control"
+                            [(ngModel)]="fecha">
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Cancelar
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn btn-success"
+                    [disabled]="cargando"
+                    (click)="guardarPedido()">
+
+                    <span
+                        *ngIf="cargando"
+                        class="spinner-border spinner-border-sm me-1">
+                    </span>
+
+
+                    {{ cargando
+                        ? 'Guardando...'
+                        : (modoEdicion
+                            ? 'Actualizar Pedido'
+                            : 'Guardar Pedido') }}
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

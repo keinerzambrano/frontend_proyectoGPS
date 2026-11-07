@@ -1,0 +1,34 @@
+
+<div class="gps-layout">
+
+  <app-nav
+    [collapsed]="menuColapsado"
+    (navigate)="cerrarMenuEnMovil()">
+  </app-nav>
+
+  <div class="gps-main">
+
+    <header class="gps-topbar">
+      <button
+        type="button"
+        class="menu-toggle"
+        (click)="alternarMenu()"
+        [attr.aria-expanded]="!menuColapsado"
+        aria-label="Abrir o cerrar menú">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <div class="topbar-title">
+        <i class="bi bi-geo-alt-fill"></i>
+        GPS Seguimiento
+      </div>
+    </header>
+
+    <main class="gps-page">
+      <router-outlet></router-outlet>
+    </main>
+
+    <app-footer></app-footer>
+
+  </div>
+</div>

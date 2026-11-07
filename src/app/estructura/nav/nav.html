@@ -1,0 +1,66 @@
+
+<aside class="gps-sidebar" [class.collapsed]="collapsed">
+
+  <a class="sidebar-header" routerLink="/dashboard"
+     (click)="seleccionarOpcion()" title="GPS Seguimiento">
+    <span class="logo-icon">
+      <i class="bi bi-geo-alt-fill"></i>
+    </span>
+    <span class="logo-text">GPS</span>
+  </a>
+
+  <div class="sidebar-section">
+    <span class="section-label">MENÚ PRINCIPAL</span>
+
+    <nav class="sidebar-menu" aria-label="Menú principal">
+
+      <a routerLink="/dashboard"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"
+         (click)="seleccionarOpcion()"
+         title="Dashboard">
+        <i class="bi bi-speedometer2"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a routerLink="/pedidos"
+         routerLinkActive="active"
+         (click)="seleccionarOpcion()"
+         title="Pedidos">
+        <i class="bi bi-truck"></i>
+        <span>Pedidos</span>
+      </a>
+
+      <a routerLink="/seguimiento"
+         routerLinkActive="active"
+         (click)="seleccionarOpcion()"
+         title="Seguimiento">
+        <i class="bi bi-geo-alt"></i>
+        <span>Seguimiento</span>
+      </a>
+
+      <a routerLink="/clientes"
+         routerLinkActive="active"
+         (click)="seleccionarOpcion()"
+         title="Clientes">
+        <i class="bi bi-people"></i>
+        <span>Clientes</span>
+      </a>
+
+      <a routerLink="/configuracion"
+         routerLinkActive="active"
+         (click)="seleccionarOpcion()"
+         title="Configuración">
+        <i class="bi bi-gear"></i>
+        <span>Configuración</span>
+      </a>
+
+    </nav>
+  </div>
+
+  <div class="sidebar-bottom">
+    <i class="bi bi-shield-check"></i>
+    <span>GPS Seguimiento v1.0</span>
+  </div>
+
+</aside>

@@ -1,0 +1,81 @@
+
+<div class="container-fluid mt-4">
+
+    <!-- BREADCRUMB -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/dashboard">Inicio</a>
+            </li>
+
+            <li class="breadcrumb-item active">
+                Dashboard
+            </li>
+        </ol>
+    </nav>
+
+    <!-- TÍTULO -->
+    <h2 class="mb-4">
+        Panel de Control
+    </h2>
+
+    <!-- TARJETAS -->
+    <div class="row g-3 mb-4">
+
+        <div class="col-md-3">
+            <div class="card dashboard-card">
+                <div class="card-body">
+                    <h6>Pedidos Hoy</h6>
+                    <h3>120</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card dashboard-card">
+                <div class="card-body">
+                    <h6>En Ruta</h6>
+                    <h3>35</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card dashboard-card">
+                <div class="card-body">
+                    <h6>Entregados</h6>
+                    <h3>80</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card dashboard-card">
+                <div class="card-body">
+                    <h6>Retrasados</h6>
+                    <h3>5</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- GRÁFICA -->
+    <div class="card mb-4">
+
+        <div class="card-body">
+
+            <h5 class="card-title">
+                Pedidos por Día
+            </h5>
+
+            <div style="height: 400px;">
+                <canvas id="ordersChart"></canvas>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```

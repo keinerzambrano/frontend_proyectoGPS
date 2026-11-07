@@ -1,0 +1,73 @@
+
+:root{
+--yellow:#FFC107;
+--red:#C62828;
+--black:#111;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f5f5f5;
+}
+
+.login-body{
+background:linear-gradient(135deg,var(--black),var(--red));
+}
+
+.login-card{
+width:350px;
+border:none;
+}
+
+.btn-theme{
+background:var(--yellow);
+border:none;
+font-weight:bold;
+}
+
+.sidebar{
+width:240px;
+background:var(--black);
+color:white;
+min-height:100vh;
+transition:0.3s;
+}
+
+.sidebar-header{
+padding:20px;
+background:var(--red);
+}
+
+.menu li{
+padding:10px 20px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+display:block;
+}
+
+.menu a:hover{
+background:var(--yellow);
+color:black;
+}
+
+#page-content{
+flex:1;
+}
+
+.dashboard-card{
+border-left:5px solid var(--yellow);
+}
+
+@media(max-width:768px){
+.sidebar{
+margin-left:-240px;
+position:fixed;
+z-index:1000;
+}
+.sidebar.active{
+margin-left:0;
+}
+}
